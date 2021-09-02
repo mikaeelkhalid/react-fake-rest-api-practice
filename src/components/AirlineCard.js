@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const AirlineCard = (props) => {
   return (
@@ -13,7 +14,9 @@ const AirlineCard = (props) => {
           alt={props.airline.name}
         />
         <CardBody>
-          <CardTitle tag='h5'>{props.airline.name} </CardTitle>
+          <Link to={'/' + props.airline.id}>
+            <CardTitle tag='h5'>{props.airline.name} </CardTitle>
+          </Link>
           <CardSubtitle tag='h6' className='mb-2 text-muted'>
             Slogan: {props.airline.slogan}
             <br />
