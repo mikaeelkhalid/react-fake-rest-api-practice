@@ -8,7 +8,7 @@ const PassengerCard = (props) => {
         <CardImg
           top
           width='100%'
-          height='200'
+          height='100%'
           src={props.passenger.airline[0].logo}
           alt={props.passenger.name}
         />
