@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { Jumbotron, Container, Row, Col } from 'reactstrap';
+import { Jumbotron, Container, Row, Col, Button, Alert } from 'reactstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAirline } from '../../redux/reducers/airlines';
 import AirlineCard from './../AirlineCard';
+import { useHistory } from 'react-router-dom';
 
-const Airlines = () => {
+const Airlines = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getAirline());
@@ -25,6 +27,10 @@ const Airlines = () => {
     <div>Loading Passengers Data...</div>
   );
 
+  const handleClick = () => {
+    history.push('/create-airline');
+  };
+
   return (
     <>
       <Jumbotron fluid>
@@ -36,6 +42,14 @@ const Airlines = () => {
           <p className='lead'>
             Total Airlines: {airlines.length ? airlines.length : 'Loading..'}
           </p>
+          <p className='lead'>
+            {props.location.state ? (
+              <Alert color='success'>{props.location.state}</Alert>
+            ) : (
+              ''
+            )}
+          </p>
+          <Button onClick={handleClick}> Create </Button>
         </Container>
       </Jumbotron>
 
