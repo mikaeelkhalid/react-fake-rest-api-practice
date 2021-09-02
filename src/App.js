@@ -7,6 +7,8 @@ import Airlines from './components/pages/Airlines';
 import Passengers from './components/pages/Passengers';
 import Settings from './components/pages/Settings';
 import Logout from './components/pages/Logout';
+import CreateAirline from './components/CreateAirline';
+import Airline from './components/pages/Airline';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path='/passengers' component={Passengers} />
             <Route path='/settings' component={Settings} />
             <Route path='/logout' component={Logout} />
+            <Route path='/create-airline' component={CreateAirline} />
+            <Route path='/:airline_id' component={Airline} />
           </Switch>
         </Container>
       </BrowserRouter>
