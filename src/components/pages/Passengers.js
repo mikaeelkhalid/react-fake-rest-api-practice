@@ -33,8 +33,8 @@ const Passengers = () => {
     <div>Loading Passengers Data...</div>
   ) : (
     passengers.data.map((passenger) => (
-      <Col sm='3' className={'mt-3'}>
-        <PassengerCard key={passenger._id} passenger={passenger} />
+      <Col sm='3' className={'mt-3'} key={passenger._id}>
+        <PassengerCard passenger={passenger} />
       </Col>
     ))
   );
@@ -45,8 +45,10 @@ const Passengers = () => {
       <Jumbotron fluid>
         <Container fluid className={'mt-5'}>
           <h1 className='display-4'>Passengers!</h1>
+          <p className='lead'>Getting Passengers data using axios</p>
           <p className='lead'>
-            Total Passengers {isLoading ? 0 : `${passengers.totalPassengers}`}
+            Total Passengers{' '}
+            {isLoading ? 'Loading..' : `${passengers.totalPassengers}`}
           </p>
         </Container>
       </Jumbotron>
