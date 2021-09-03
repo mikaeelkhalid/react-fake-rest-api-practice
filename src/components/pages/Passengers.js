@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Jumbotron, Container, Row, Col } from 'reactstrap';
-
+import { useHistory } from 'react-router-dom';
 import PassengerCard from '../PassengerCard';
 import Pagination from '../Pagination';
 
@@ -9,6 +9,7 @@ const Passengers = () => {
   const [passengers, setPassengers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [pagination, setPagination] = useState(0);
+  const history = useHistory();
 
   const getPassengers = async () => {
     try {
@@ -39,9 +40,11 @@ const Passengers = () => {
     ))
   );
 
-  // console.log(passengers);
   return (
     <>
+      {localStorage.getItem('rememberPassenger') === 'true'
+        ? history.push('/unauth-401')
+        : null}
       <Jumbotron fluid>
         <Container fluid className={'mt-5'}>
           <h1 className='display-4'>Passengers!</h1>

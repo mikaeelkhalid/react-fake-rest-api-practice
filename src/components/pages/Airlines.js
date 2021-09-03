@@ -33,6 +33,9 @@ const Airlines = (props) => {
 
   return (
     <>
+      {localStorage.getItem('rememberAirline') === 'true'
+        ? history.push('/unauth-401')
+        : null}
       <Jumbotron fluid>
         <Container fluid className={'mt-5'}>
           <h1 className='display-4'>Airlines!</h1>
