@@ -9,6 +9,7 @@ import Settings from './components/pages/Settings';
 import Logout from './components/pages/Logout';
 import CreateAirline from './components/CreateAirline';
 import Airline from './components/pages/Airline';
+import UnauthMessage from './components/UnauthMessage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/airlines' component={Airlines} />
+            <Route path='/unauth-401' component={UnauthMessage} />
             <Route path='/passengers' component={Passengers} />
             <Route path='/settings' component={Settings} />
             <Route path='/logout' component={Logout} />
