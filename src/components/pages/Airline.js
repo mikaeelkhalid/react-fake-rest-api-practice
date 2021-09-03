@@ -26,38 +26,38 @@ const Airline = (props) => {
     getData();
   });
 
+  const airlineData = loading ? (
+    <div className='center'>Loading...</div>
+  ) : (
+    <>
+      <Media>
+        <Media left href='#'>
+          <img src={airline.logo} alt={airline.name} />
+        </Media>
+        <Media body>
+          <br />
+
+          <Media heading>{airline.name}</Media>
+          <p>{airline.country}</p>
+          <p>{airline.slogon}</p>
+          <p>{airline.website}</p>
+          <p>{airline.established}</p>
+        </Media>
+      </Media>
+    </>
+  );
+
   return (
     <>
       <Jumbotron fluid>
         <Container fluid className={'mt-5'}>
           <h1 className='display-4'>Airline Detail Page!</h1>
-          <p className='lead'>Read AirLine By ID - use axios only</p>
+          <p className='lead'>Reading AirLine By ID - using axios only</p>
         </Container>
       </Jumbotron>
       <Container fluid className={'mt-5 mb-5'}>
         <Row>
-          <Col md={6}>
-            {loading ? (
-              <div className='center'>Loading...</div>
-            ) : (
-              <>
-                <Media>
-                  <Media left href='#'>
-                    <img src={airline.logo} alt={airline.name} />
-                  </Media>
-                  <Media body>
-                    <br />
-
-                    <Media heading>{airline.name}</Media>
-                    <p>{airline.country}</p>
-                    <p>{airline.slogon}</p>
-                    <p>{airline.website}</p>
-                    <p>{airline.established}</p>
-                  </Media>
-                </Media>
-              </>
-            )}
-          </Col>
+          <Col md={6}>{airlineData}</Col>
         </Row>
       </Container>
     </>
